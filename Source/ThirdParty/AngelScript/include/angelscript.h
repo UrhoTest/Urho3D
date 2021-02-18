@@ -1976,7 +1976,7 @@ const asSBCInfo asBCInfo[256] =
 // as Angelscript already provides generic wrappers for their classes
 // (AS_IS_BUILDING is defined in the CMakeLists.txt file for the AngelScript (sub)library)
 #ifndef AS_IS_BUILDING
-#include "wrapmacros.h"
+//#include "wrapmacros.h"
 #endif
 
 END_AS_NAMESPACE
