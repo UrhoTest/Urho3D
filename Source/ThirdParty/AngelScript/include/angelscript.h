@@ -1969,6 +1969,7 @@ const asSBCInfo asBCInfo[256] =
 #define asBC_SWORDARG1(x) (*(((short*)x)+2))
 #define asBC_SWORDARG2(x) (*(((short*)x)+3))
 
+
 END_AS_NAMESPACE
 
 #endif
