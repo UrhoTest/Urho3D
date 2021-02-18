@@ -467,7 +467,7 @@ if (APPLE)
     set_property (TARGET ${TARGET_NAME} APPEND PROPERTY LINK_LIBRARIES -force_load)
 elseif (MSVC)
     foreach (THIRD_PARTY_LIB ${STATIC_LIBRARY_TARGETS})
-        if (NOT ${THIRD_PARTY_LIB} MATCHES boost|rapidjson|STB)  # Exclude header-only "fake" static libs
+        if (NOT ${THIRD_PARTY_LIB} MATCHES rapidjson|STB)  # Exclude header-only "fake" static libs
             # Must be specified for each library https://github.com/urho3d/Urho3D/issues/2760
             set_property (TARGET ${TARGET_NAME} APPEND PROPERTY LINK_OPTIONS /WHOLEARCHIVE:${THIRD_PARTY_LIB})  # Require VS 2015 Update 2 onward
         endif ()
@@ -479,7 +479,7 @@ endif ()
 
 foreach (TARGET ${STATIC_LIBRARY_TARGETS})
     set (ARCHIVE $<TARGET_FILE:${TARGET}>)
-    if (NOT ${TARGET} MATCHES boost|rapidjson|STB)  # Exclude header-only "fake" static lib targets
+    if (NOT ${TARGET} MATCHES rapidjson|STB)  # Exclude header-only "fake" static lib targets
         set_property (TARGET ${TARGET_NAME} APPEND PROPERTY LINK_LIBRARIES ${ARCHIVE})      # Should work for all compiler toolchains while building shared library
         if (URHO3D_LIB_TYPE STREQUAL STATIC)
             if (XCODE OR MSVC)  # Only works in Xcode and MSVC while building static library

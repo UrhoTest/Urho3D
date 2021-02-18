@@ -72,13 +72,6 @@ foreach (TARGET ETCPACK FreeType LZ4 PugiXml rapidjson SDL StanHull STB)
     add_subdirectory (ThirdParty/${TARGET})
 endforeach ()
 
-if (URHO3D_ANGELSCRIPT)
-    add_subdirectory (ThirdParty/AngelScript)
-    if (WEB OR (ARM AND URHO3D_64BIT))
-        add_subdirectory (ThirdParty/boost)
-    endif ()
-endif ()
-
 if (URHO3D_LUA)
     add_subdirectory (ThirdParty/Lua${JIT})
     add_subdirectory (ThirdParty/toluapp/src/lib)
